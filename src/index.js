@@ -143,24 +143,39 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
 
         return (
             <div {...blockProps}>
-                <div className="essay-notecard">
-                    <div className="topic-statement">
-                        {topicStatement && escapeHTML(topicStatement)}
-                    </div>
-                    <RichText.Content
-                        tagName="div"
-                        className="supporting-text"
-                        value={supportingText}
-                    />
-                    <div className="citation">
-                        <div className="source-title">
-                            {sourceTitle && escapeHTML(sourceTitle)}
+                <div className="wp-block-essay-notecard">
+                    <div className="components-card">
+                        <div className="components-card__header">
+                            <div className="topic-statement">
+                                {topicStatement}
+                            </div>
                         </div>
-                        <div className="source-author">
-                            {sourceAuthor && escapeHTML(sourceAuthor)}
+                        
+                        <div className="components-card__body">
+                            <RichText.Content
+                                tagName="div"
+                                className="supporting-text"
+                                value={supportingText}
+                            />
                         </div>
-                        <div className="source-location">
-                            {sourceLocation && escapeHTML(sourceLocation)}
+                        
+                        <div className="components-card__footer">
+                            <div className="citation-info">
+                                <div className="source-entry">
+                                    <span className="entry-label">{__('Source Title', 'essay-card-topic-statement-generator')}</span>
+                                    <div className="source-title">{sourceTitle}</div>
+                                </div>
+                                
+                                <div className="source-entry">
+                                    <span className="entry-label">{__('Author', 'essay-card-topic-statement-generator')}</span>
+                                    <div className="source-author">{sourceAuthor}</div>
+                                </div>
+                                
+                                <div className="source-entry">
+                                    <span className="entry-label">{__('Location', 'essay-card-topic-statement-generator')}</span>
+                                    <div className="source-location">{sourceLocation}</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

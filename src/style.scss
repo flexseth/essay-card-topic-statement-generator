@@ -1,90 +1,115 @@
-// Frontend styles
-.wp-block-essay-card-topic-statement-generator-notecard {
-    margin: 2rem 0;
+// Frontend styles for the essay notecard
+.wp-block-essay-notecard {
+    margin: 2rem auto;
+    max-width: 800px;
     
-    .essay-notecard {
+    .components-card {
         background: #ffffff;
         border: 1px solid #ddd;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         overflow: hidden;
         
-        // Topic Statement
-        .topic-statement {
+        // Header section with topic statement
+        .components-card__header {
             background-color: #f8f9f9;
             border-bottom: 1px solid #ddd;
-            font-size: 1.2em;
-            font-weight: 600;
             padding: 1rem;
+            
+            .topic-statement {
+                font-size: 1.2em;
+                font-weight: 600;
+                color: #1e1e1e;
+                line-height: 1.4;
+            }
         }
         
-        // Supporting Text
-        .supporting-text {
+        // Body section with supporting text
+        .components-card__body {
             padding: 1.5rem;
-            line-height: 1.6;
-            color: #2c3338;
             
-            p {
-                margin: 0 0 1rem 0;
+            .supporting-text {
+                line-height: 1.6;
+                color: #2c3338;
                 
-                &:last-child {
-                    margin-bottom: 0;
+                p {
+                    margin: 0 0 1rem 0;
+                    
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                
+                // Style for rich text content
+                a {
+                    color: #0073aa;
+                    text-decoration: underline;
+                    
+                    &:hover {
+                        color: #006799;
+                    }
+                }
+                
+                strong {
+                    font-weight: 600;
+                }
+                
+                em {
+                    font-style: italic;
                 }
             }
         }
         
-        // Citation Section
-        .citation {
+        // Footer section with citation info
+        .components-card__footer {
             background-color: #f8f9f9;
             border-top: 1px solid #ddd;
             padding: 1rem;
-            font-size: 0.9em;
-            color: #505a62;
             
-            display: grid;
-            grid-gap: 0.5rem;
-            
-            @media (min-width: 600px) {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .source-title,
-            .source-author,
-            .source-location {
-                padding: 0.5rem;
+            .citation-info {
+                display: grid;
+                grid-gap: 1rem;
                 
-                &:before {
-                    display: block;
-                    font-size: 0.8em;
-                    color: #757575;
-                    margin-bottom: 0.25rem;
+                @media (min-width: 600px) {
+                    grid-template-columns: repeat(3, 1fr);
                 }
-            }
-            
-            .source-title:before {
-                content: "Source:";
-            }
-            
-            .source-author:before {
-                content: "Author:";
-            }
-            
-            .source-location:before {
-                content: "Location:";
+                
+                .source-entry {
+                    .entry-label {
+                        display: block;
+                        font-size: 0.8em;
+                        color: #757575;
+                        margin-bottom: 0.25rem;
+                        font-weight: 500;
+                    }
+                    
+                    .source-title,
+                    .source-author,
+                    .source-location {
+                        font-size: 0.9em;
+                        color: #2c3338;
+                    }
+                }
             }
         }
     }
     
     // Print styles
     @media print {
-        .essay-notecard {
+        .components-card {
             box-shadow: none;
             border: 1px solid #000;
             
-            .topic-statement,
-            .citation {
+            .components-card__header,
+            .components-card__footer {
                 background-color: transparent;
                 border-color: #000;
+            }
+            
+            .citation-info {
+                .entry-label {
+                    color: #000;
+                }
             }
         }
     }
