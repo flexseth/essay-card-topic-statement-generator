@@ -3,7 +3,7 @@
  * Plugin Name: Essay Card Topic Statement Generator
  * Plugin URI: https://flexperception.com/essay-card-topic-statement-generator
  * Description: Notecards for research essays
- * Version: 0.1.1
+ * Version: 0.1.0
  * Requires at least: 5.2
  * Requires PHP: 6.0
  * Author: Seth Miller
@@ -48,11 +48,19 @@ function essay_card_topic_statement_generator_init() {
         filemtime(plugin_dir_path(__FILE__) . 'build/index.css')
     );
 
+    // Register frontend styles
+    wp_register_style(
+        'essay-card-topic-statement-generator-style',
+        plugins_url('build/style-index.css', __FILE__),
+        array(),
+        filemtime(plugin_dir_path(__FILE__) . 'build/style-index.css')
+    );
+
     // Register the block.
     register_block_type('essay-card-topic-statement-generator/notecard', array(
         'editor_script' => 'essay-card-topic-statement-generator',
         'editor_style' => 'essay-card-topic-statement-generator-editor',
-        'style' => 'essay-card-topic-statement-generator',
+        'style' => 'essay-card-topic-statement-generator-style',
     ));
 }
 add_action('init', 'essay_card_topic_statement_generator_init');
