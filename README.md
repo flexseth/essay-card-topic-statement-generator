@@ -2,6 +2,8 @@
 
 A WordPress plugin that adds a Gutenberg block for creating essay notecards with topic statements, supporting text, and MLA citations.
 
+![alt text](./screenshot.png "a user interface of a card, that has research information on it, including author's name, supporting information, publication title and page number.")
+
 ## Description
 
 This plugin provides a custom Gutenberg block that allows users to create digital notecards for essay research. Each notecard includes:
