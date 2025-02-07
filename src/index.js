@@ -53,7 +53,10 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
     },
 
     edit: ({ attributes, setAttributes }) => {
-        const blockProps = useBlockProps();
+        const blockProps = useBlockProps({
+            className: 'wp-block-essay-notecard'
+        });
+        
         const {
             topicStatement,
             supportingText,
@@ -81,6 +84,9 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                             value={topicStatement}
                             onChange={(value) => setAttributes({ topicStatement: value })}
                             placeholder={placeholders.topicStatement}
+                            className="topic-statement-input"
+                            // Adding ID for better accessibility
+                            id="topic-statement"
                         />
                     </CardHeader>
                     <CardBody>
@@ -91,6 +97,10 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                             onChange={(value) => setAttributes({ supportingText: value })}
                             placeholder={placeholders.supportingText}
                             multiline="p"
+                            // Adding ID for better accessibility
+                            id="supporting-text"
+                            // Adding tabIndex to ensure it's in the tab order
+                            tabIndex={0}
                             allowedFormats={[
                                 'core/bold',
                                 'core/italic',
@@ -110,18 +120,24 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                                 value={sourceTitle}
                                 onChange={(value) => setAttributes({ sourceTitle: value })}
                                 placeholder={placeholders.sourceTitle}
+                                // Adding ID for better accessibility
+                                id="source-title"
                             />
                             <TextControl
                                 label={__('Author', 'essay-card-topic-statement-generator')}
                                 value={sourceAuthor}
                                 onChange={(value) => setAttributes({ sourceAuthor: value })}
                                 placeholder={placeholders.sourceAuthor}
+                                // Adding ID for better accessibility
+                                id="source-author"
                             />
                             <TextControl
                                 label={__('Page Number/URL', 'essay-card-topic-statement-generator')}
                                 value={sourceLocation}
                                 onChange={(value) => setAttributes({ sourceLocation: value })}
                                 placeholder={placeholders.sourceLocation}
+                                // Adding ID for better accessibility
+                                id="source-location"
                             />
                         </div>
                     </CardFooter>
@@ -139,46 +155,46 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
             sourceLocation,
         } = attributes;
 
-        const blockProps = useBlockProps.save();
+        const blockProps = useBlockProps.save({
+            className: 'wp-block-essay-notecard'
+        });
 
         return (
             <div {...blockProps}>
-                <div className="wp-block-essay-notecard">
-                    <div className="components-card">
-                        <div className="components-card__header">
-                            <div className="topic-statement">
-                                {topicStatement}
+                <Card>
+                    <CardHeader>
+                        <div className="topic-statement">
+                            {topicStatement}
+                        </div>
+                    </CardHeader>
+                    
+                    <CardBody>
+                        <RichText.Content
+                            tagName="div"
+                            className="supporting-text"
+                            value={supportingText}
+                        />
+                    </CardBody>
+                    
+                    <CardFooter>
+                        <div className="citation-info">
+                            <div className="source-entry">
+                                <span className="entry-label">{__('Source Title', 'essay-card-topic-statement-generator')}</span>
+                                <div className="source-title">{sourceTitle}</div>
+                            </div>
+                            
+                            <div className="source-entry">
+                                <span className="entry-label">{__('Author', 'essay-card-topic-statement-generator')}</span>
+                                <div className="source-author">{sourceAuthor}</div>
+                            </div>
+                            
+                            <div className="source-entry">
+                                <span className="entry-label">{__('Location', 'essay-card-topic-statement-generator')}</span>
+                                <div className="source-location">{sourceLocation}</div>
                             </div>
                         </div>
-                        
-                        <div className="components-card__body">
-                            <RichText.Content
-                                tagName="div"
-                                className="supporting-text"
-                                value={supportingText}
-                            />
-                        </div>
-                        
-                        <div className="components-card__footer">
-                            <div className="citation-info">
-                                <div className="source-entry">
-                                    <span className="entry-label">{__('Source Title', 'essay-card-topic-statement-generator')}</span>
-                                    <div className="source-title">{sourceTitle}</div>
-                                </div>
-                                
-                                <div className="source-entry">
-                                    <span className="entry-label">{__('Author', 'essay-card-topic-statement-generator')}</span>
-                                    <div className="source-author">{sourceAuthor}</div>
-                                </div>
-                                
-                                <div className="source-entry">
-                                    <span className="entry-label">{__('Location', 'essay-card-topic-statement-generator')}</span>
-                                    <div className="source-location">{sourceLocation}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    </CardFooter>
+                </Card>
             </div>
         );
     },
