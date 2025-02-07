@@ -1,5 +1,5 @@
-// Frontend styles for the essay notecard
-.wp-block-essay-notecard {
+// Main block styles for both editor and front-end
+.wp-block-essay-card-topic-statement-generator-notecard {
     margin: 2rem auto;
     max-width: 800px;
     
@@ -16,11 +16,35 @@
             border-bottom: 1px solid #ddd;
             padding: 1rem;
             
-            .topic-statement {
-                font-size: 1.2em;
-                font-weight: 600;
-                color: #1e1e1e;
-                line-height: 1.4;
+            .card-header-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 2rem;
+                
+                .topic-statement {
+                    flex: 1;
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    color: #1e1e1e;
+                    line-height: 1.4;
+                    margin: 0;
+                }
+                
+                .source-info-top {
+                    min-width: 200px;
+                    text-align: right;
+                    
+                    .source-title {
+                        font-size: 0.9em;
+                        color: #2c3338;
+                        
+                        .entry-label {
+                            color: #757575;
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
             }
         }
         
@@ -40,7 +64,7 @@
                     }
                 }
                 
-                // Style for rich text content
+                // Rich text styling
                 a {
                     color: #0073aa;
                     text-decoration: underline;
@@ -88,6 +112,7 @@
                     .source-location {
                         font-size: 0.9em;
                         color: #2c3338;
+                        margin: 0;
                     }
                 }
             }
