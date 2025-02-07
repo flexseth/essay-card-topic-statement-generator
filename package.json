@@ -1,0 +1,65 @@
+{
+    "name": "essay-card-topic-statement-generator",
+    "version": "0.1.0",
+    "description": "Notecards for research essays",
+    "author": "Seth Miller",
+    "license": "GPL-2.0-or-later",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "wp-scripts build",
+        "format": "wp-scripts format",
+        "lint:css": "wp-scripts lint-style",
+        "lint:js": "wp-scripts lint-js",
+        "packages-update": "wp-scripts packages-update",
+        "plugin-zip": "wp-scripts plugin-zip",
+        "start": "wp-scripts start",
+        "check-engines": "wp-scripts check-engines",
+        "check-licenses": "wp-scripts check-licenses",
+        "lint:md:docs": "wp-scripts lint-md-docs",
+        "test:e2e": "wp-scripts test-e2e",
+        "test:unit": "wp-scripts test-unit-js"
+    },
+    "dependencies": {
+        "@wordpress/block-editor": "^12.0.0",
+        "@wordpress/blocks": "^12.0.0",
+        "@wordpress/components": "^25.0.0",
+        "@wordpress/compose": "^6.0.0",
+        "@wordpress/data": "^9.0.0",
+        "@wordpress/element": "^5.0.0",
+        "@wordpress/escape-html": "^2.0.0",
+        "@wordpress/i18n": "^4.0.0",
+        "@wordpress/icons": "^9.0.0",
+        "@wordpress/primitives": "^3.0.0"
+    },
+    "devDependencies": {
+        "@wordpress/browserslist-config": "^5.30.0",
+        "@wordpress/env": "^8.0.0",
+        "@wordpress/eslint-plugin": "^14.0.0",
+        "@wordpress/jest-preset-default": "^11.0.0",
+        "@wordpress/prettier-config": "^2.0.0",
+        "@wordpress/scripts": "^30.10.0",
+        "@wordpress/stylelint-config": "^21.0.0",
+        "browserslist": "^4.22.2",
+        "eslint": "^8.0.0",
+        "prettier": "^2.8.0",
+        "sass": "^1.60.0",
+        "sass-loader": "^13.2.0",
+        "stylelint": "^14.0.0"
+    },
+    "engines": {
+        "node": ">=16.0.0",
+        "npm": ">=7.0.0"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
+}

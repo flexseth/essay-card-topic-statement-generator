@@ -1,0 +1,67 @@
+// Editor-specific styles
+.wp-block-essay-card-topic-statement-generator-notecard {
+    // Add padding to the block in editor
+    padding: 1rem;
+    
+    // Style the WordPress Card component
+    .components-card {
+        border: 1px solid #e2e4e7;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        
+        .components-card__header {
+            background-color: #f8f9f9;
+            border-bottom: 1px solid #e2e4e7;
+            
+            .components-text-control__input {
+                font-size: 1.2em;
+                font-weight: 600;
+            }
+        }
+        
+        .components-card__body {
+            min-height: 200px;
+            padding: 1rem;
+            
+            .supporting-text {
+                line-height: 1.6;
+                
+                &:empty::before {
+                    content: attr(placeholder);
+                    color: #757575;
+                }
+            }
+        }
+        
+        .components-card__footer {
+            background-color: #f8f9f9;
+            border-top: 1px solid #e2e4e7;
+            padding: 1rem;
+            
+            .citation-info {
+                display: grid;
+                grid-gap: 1rem;
+                
+                .components-text-control__input {
+                    width: 100%;
+                }
+                
+                @media (min-width: 600px) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+    
+    // Style placeholders
+    .components-text-control__input::placeholder {
+        color: #757575;
+    }
+    
+    // Focus states
+    .components-text-control__input:focus,
+    .supporting-text:focus {
+        border-color: var(--wp-admin-theme-color);
+        box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+        outline: 2px solid transparent;
+    }
+}
