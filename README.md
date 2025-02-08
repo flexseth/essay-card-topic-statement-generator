@@ -52,6 +52,11 @@ npm run build
    - Supporting Text: Paragraphs supporting your topic
    - Source Information: Publication details for MLA citation
 
+## Features
+- Easily create essay research notecards
+- Word counter shows how close you are to progress on a topic
+- Organize as WordPress posts to step through writing process
+
 ## Requirements
 
 - WordPress 5.2 or higher
@@ -61,6 +66,9 @@ npm run build
 - Check "Page" field for text or URL & validate 
 - Create grid display for notecards
 - Add automatic citations based on input fields
+
+## Change log
+See CHANGELOG
 
 ## License
 

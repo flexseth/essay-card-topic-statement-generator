@@ -15,6 +15,7 @@ import {
 } from '@wordpress/block-editor';
 import './style.scss';
 import './editor.scss';
+import WordCounter from './WordCounter';
 
 registerBlockType('essay-card-topic-statement-generator/notecard', {
     apiVersion: 2,
@@ -77,6 +78,9 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
         return (
             <div {...blockProps}>
                 <Card>
+                
+                {/* Word counter */}
+                <WordCounter text={supportingText || ''} />
                     <CardHeader>
                         <div className="header-left">
                             <TextControl

@@ -1,5 +1,74 @@
 // Editor-specific styles
 .wp-block-essay-card-topic-statement-generator-notecard {
+
+    position: relative;
+    // margin-right: 70px;
+
+
+    // Word counter
+    .word-counter-wrapper {
+        position: sticky;
+        top: 20px;
+        width: 80px;
+        margin-left: calc(100% + 20px); // Position it outside the card
+        z-index: 100;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 8px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+
+        &.visible {
+            opacity: 1;
+        }
+
+        .word-counter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 8px;
+
+            .count {
+                font-size: 1.2em;
+                font-weight: 500;
+                line-height: 1;
+                color: #1e1e1e;
+            }
+
+            .label {
+                font-size: 0.8em;
+                color: #757575;
+            }
+        }
+
+        .word-progress {
+            width: 100%;
+            height: 4px;
+            border: none;
+            border-radius: 2px;
+            overflow: hidden;
+
+            &::-webkit-progress-bar {
+                background-color: #f0f0f0;
+                border-radius: 2px;
+            }
+
+            &::-webkit-progress-value {
+                background-color: var(--wp-admin-theme-color);
+                border-radius: 2px;
+                transition: width 0.3s ease-in-out;
+            }
+
+            &::-moz-progress-bar {
+                background-color: var(--wp-admin-theme-color);
+                border-radius: 2px;
+                transition: width 0.3s ease-in-out;
+            }
+        }
+    }
+
     // Editor layout adjustments
     .components-card__header {
         display: flex;
