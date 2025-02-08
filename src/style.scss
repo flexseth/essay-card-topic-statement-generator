@@ -7,6 +7,23 @@ $header-bg: #f8f9f9;
     margin: 2rem auto;
     max-width: 800px;
 
+    // Hide label when source fields are empty
+    .source-title:empty,
+    .source-author:empty,
+    .source-location:empty {
+        & ~ .entry-label,
+        &:before {
+            display: none;
+        }
+    }
+
+    // Hide empty source fields themselves
+    .source-title:empty,
+    .source-author:empty,
+    .source-location:empty {
+        display: none;
+    }
+
     .notecard {
         background: #ffffff;
         border: 1px solid $border-color;
@@ -99,6 +116,10 @@ $header-bg: #f8f9f9;
                 align-items: baseline;
                 gap: 0.25rem;
                 width: 100%;
+
+                &.is-empty {
+                    display: none;
+                }
 
                 .entry-label {
                     font-size: 0.8em;

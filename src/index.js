@@ -7,12 +7,11 @@ import {
     CardBody,
     CardFooter,
     TextControl,
+    ToggleControl,
 } from '@wordpress/components';
 import {
     useBlockProps,
     RichText,
-    AlignmentToolbar,
-    BlockControls,
 } from '@wordpress/block-editor';
 import './style.scss';
 import './editor.scss';
@@ -38,10 +37,6 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
             selector: '.supporting-text',
             multiline: 'p',
         },
-        textAlignment: {
-            type: 'string',
-            default: 'left',
-        },
         sourceTitle: {
             type: 'string',
         },
@@ -50,6 +45,10 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
         },
         sourceLocation: {
             type: 'string',
+        },
+        showCitation: {
+            type: 'boolean',
+            default: false,
         }
     },
 
@@ -64,6 +63,7 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
             sourceTitle,
             sourceAuthor,
             sourceLocation,
+            showCitation,
         } = attributes;
 
         const placeholders = {
@@ -77,31 +77,37 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
         return (
             <div {...blockProps}>
                 <Card>
-                    <CardHeader className="notecard-header">
+                    <CardHeader>
                         <div className="header-left">
                             <TextControl
                                 label={__('Topic Statement', 'essay-card-topic-statement-generator')}
                                 value={topicStatement}
                                 onChange={(value) => setAttributes({ topicStatement: value })}
                                 placeholder={placeholders.topicStatement}
+                                className="topic-statement-input"
                                 id="topic-statement"
                             />
                         </div>
-                        <div className="header-right">
-                            <TextControl
-                                label={__('Source Title', 'essay-card-topic-statement-generator')}
-                                value={sourceTitle}
-                                onChange={(value) => setAttributes({ sourceTitle: value })}
-                                placeholder={placeholders.sourceTitle}
-                                id="source-title"
+                        <div className="citation-toggle">
+                            <ToggleControl
+                                label={__('Citation', 'essay-card-topic-statement-generator')}
+                                checked={showCitation}
+                                onChange={(value) => setAttributes({ showCitation: value })}
                             />
                         </div>
+                        {showCitation && (
+                            <div className="header-right">
+                                <TextControl
+                                    label={__('Source Title', 'essay-card-topic-statement-generator')}
+                                    value={sourceTitle}
+                                    onChange={(value) => setAttributes({ sourceTitle: value })}
+                                    placeholder={placeholders.sourceTitle}
+                                    id="source-title"
+                                />
+                            </div>
+                        )}
                     </CardHeader>
-
                     <CardBody>
-                        <BlockControls>
-                            <AlignmentToolbar />
-                        </BlockControls>
                         <RichText
                             tagName="div"
                             className="supporting-text"
@@ -115,34 +121,35 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                                 'core/link',
                                 'core/strikethrough',
                                 'core/underline',
-                                'core/text-color',
                                 'core/superscript',
                                 'core/subscript',
-                                'core/keyboard',
-                                'core/list'
+                                'core/text-color'
                             ]}
                         />
                     </CardBody>
-
-                    <CardFooter className="notecard-footer">
-                        <div className="footer-left">
-                            <TextControl
-                                label={__('Author', 'essay-card-topic-statement-generator')}
-                                value={sourceAuthor}
-                                onChange={(value) => setAttributes({ sourceAuthor: value })}
-                                placeholder={placeholders.sourceAuthor}
-                                id="source-author"
-                            />
-                        </div>
-                        <div className="footer-right">
-                            <TextControl
-                                label={__('Page Number/URL', 'essay-card-topic-statement-generator')}
-                                value={sourceLocation}
-                                onChange={(value) => setAttributes({ sourceLocation: value })}
-                                placeholder={placeholders.sourceLocation}
-                                id="source-location"
-                            />
-                        </div>
+                    <CardFooter>
+                        {showCitation && (
+                            <>
+                                <div className="footer-left">
+                                    <TextControl
+                                        label={__('Author', 'essay-card-topic-statement-generator')}
+                                        value={sourceAuthor}
+                                        onChange={(value) => setAttributes({ sourceAuthor: value })}
+                                        placeholder={placeholders.sourceAuthor}
+                                        id="source-author"
+                                    />
+                                </div>
+                                <div className="footer-right">
+                                    <TextControl
+                                        label={__('Page', 'essay-card-topic-statement-generator')}
+                                        value={sourceLocation}
+                                        onChange={(value) => setAttributes({ sourceLocation: value })}
+                                        placeholder={placeholders.sourceLocation}
+                                        id="source-location"
+                                    />
+                                </div>
+                            </>
+                        )}
                     </CardFooter>
                 </Card>
             </div>
@@ -156,6 +163,7 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
             sourceTitle,
             sourceAuthor,
             sourceLocation,
+            showCitation,
         } = attributes;
 
         const blockProps = useBlockProps.save({
@@ -169,12 +177,14 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                         <div className="header-left">
                             <div className="topic-statement">{topicStatement}</div>
                         </div>
-                        <div className="header-right">
-                            <div className="source-title-wrapper">
-                                <span className="entry-label">{__('Source:', 'essay-card-topic-statement-generator')}</span>
-                                <div className="source-title">{sourceTitle}</div>
+                        {showCitation && sourceTitle && (
+                            <div className="header-right">
+                                <div className="source-title-wrapper">
+                                    <span className="entry-label">{__('Source:', 'essay-card-topic-statement-generator')}</span>
+                                    <span className="source-title">{sourceTitle}</span>
+                                </div>
                             </div>
-                        </div>
+                        )}
                     </div>
 
                     <div className="notecard-body">
@@ -185,16 +195,22 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                         />
                     </div>
 
-                    <div className="notecard-footer">
-                        <div className="footer-left">
-                            <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
-                            <span className="source-author">{sourceAuthor}</span>
+                    {showCitation && (
+                        <div className="notecard-footer">
+                            {sourceAuthor && (
+                                <div className="footer-left">
+                                    <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
+                                    <span className="source-author">{sourceAuthor}</span>
+                                </div>
+                            )}
+                            {sourceLocation && (
+                                <div className="footer-right">
+                                    <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
+                                    <span className="source-location">{sourceLocation}</span>
+                                </div>
+                            )}
                         </div>
-                        <div className="footer-right">
-                            <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
-                            <span className="source-location">{sourceLocation}</span>
-                        </div>
-                    </div>
+                    )}
                 </div>
             </div>
         );
