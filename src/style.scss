@@ -19,11 +19,13 @@ $header-bg: #f8f9f9;
             border-bottom: 1px solid $border-color;
             padding: 1rem;
             display: flex;
-            flex-direction: column;
-            gap: 1rem;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: flex-start;
 
-            .topic-row {
-                width: 100%;
+            .header-left {
+                flex: 1;
+                min-width: 0;
 
                 .topic-statement {
                     font-size: 1.2em;
@@ -34,22 +36,10 @@ $header-bg: #f8f9f9;
                 }
             }
 
-            .metadata-row {
-                display: flex;
-                gap: 1rem;
-                width: 100%;
-
-                .source-title-wrapper {
-                    flex: 0 0 50%;
-                }
-
-                .source-author-wrapper {
-                    flex: 0 0 40%;
-                }
-
-                .source-location-wrapper {
-                    flex: 0 0 5rem;
-                }
+            .header-right {
+                flex: 0 0 auto;
+                min-width: 200px;
+                text-align: right;
 
                 .entry-label {
                     color: $label-color;
@@ -57,9 +47,7 @@ $header-bg: #f8f9f9;
                     margin-right: 0.5rem;
                 }
 
-                .source-title,
-                .source-author,
-                .source-location {
+                .source-title {
                     font-size: 0.9em;
                     color: $text-color;
                     display: inline;
@@ -100,37 +88,74 @@ $header-bg: #f8f9f9;
                 }
             }
         }
+
+        .notecard-footer {
+            background-color: $header-bg;
+            border-top: 1px solid $border-color;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+
+            .footer-left,
+            .footer-right {
+                display: flex;
+                align-items: baseline;
+                gap: 0.25rem;
+
+                .entry-label {
+                    font-size: 0.8em;
+                    color: $label-color;
+                }
+
+                .source-author,
+                .source-location {
+                    font-size: 0.9em;
+                    color: $text-color;
+                }
+            }
+
+            .footer-left {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .footer-right {
+                flex: 0 0 auto;
+                min-width: 200px;
+                text-align: right;
+                justify-content: flex-end;
+            }
+        }
     }
 }
 
-// Responsive adjustments
 @media (max-width: 600px) {
     .wp-block-essay-card-topic-statement-generator-notecard {
         .notecard {
-            .notecard-header {
-                .metadata-row {
-                    flex-direction: column;
-                    gap: 0.5rem;
+            .notecard-header,
+            .notecard-footer {
+                flex-direction: column;
+                gap: 1rem;
 
-                    .source-title-wrapper,
-                    .source-author-wrapper,
-                    .source-location-wrapper {
-                        flex: 0 0 100%;
-                    }
+                .header-right,
+                .footer-right {
+                    min-width: 100%;
+                    text-align: left;
                 }
             }
         }
     }
 }
 
-// Print styles
 @media print {
     .wp-block-essay-card-topic-statement-generator-notecard {
         .notecard {
             box-shadow: none;
             border: 1px solid #000;
 
-            .notecard-header {
+            .notecard-header,
+            .notecard-footer {
                 background-color: transparent;
                 border-color: #000;
             }
