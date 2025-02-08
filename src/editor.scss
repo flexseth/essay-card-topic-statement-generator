@@ -1,5 +1,35 @@
 // Editor-specific styles
 .wp-block-essay-card-topic-statement-generator-notecard {
+
+    // Make all TextControl labels match Topic Statement style
+   // Make all TextControl labels match style
+   .components-base-control__label,
+   .components-text-control__label {
+       font-size: 1.1em !important;
+       font-weight: 500 !important;
+       line-height: 1.4;
+       margin-bottom: 0.5rem;
+   }
+
+    // Special cases remain small
+    .citation-toggle {
+        .components-toggle-control__label {
+            font-size: 11px !important;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+        }
+    }
+
+    .citation-top {
+        .source-title-wrapper {
+            label {
+                font-size: 13px !important;
+                margin: 0;
+                white-space: nowrap;
+            }
+        }
+    }
+
     // Editor layout adjustments
     .components-card__header {
         display: flex;

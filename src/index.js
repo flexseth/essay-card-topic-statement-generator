@@ -114,7 +114,7 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                             <div className="citation-top">
                                 <div className="citation-toggle">
                                     <ToggleControl
-                                        label={__('CITATION', 'essay-card-topic-statement-generator')}
+                                        label={__('Citation', 'essay-card-topic-statement-generator')}
                                         checked={showCitation}
                                         onChange={(value) => setAttributes({ showCitation: value })}
                                         labelPosition="left"
@@ -122,14 +122,14 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                                 </div>
                                 {showCitation && (
                                     <div className="source-title-wrapper">
-                                        <label htmlFor="source-title">{__('Source Title:', 'essay-card-topic-statement-generator')}</label>
                                         <TextControl
+                                            label={__('Source', 'essay-card-topic-statement-generator')}
                                             value={sourceTitle}
                                             onChange={(value) => setAttributes({ sourceTitle: value })}
                                             placeholder={placeholders.sourceTitle}
                                             id="source-title"
                                         />
-                                    </div>
+                                  </div>
                                 )}
                             </div>
                             {showCitation && (

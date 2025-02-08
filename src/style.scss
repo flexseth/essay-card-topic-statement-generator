@@ -31,6 +31,23 @@ $header-bg: #f8f9f9;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         overflow: hidden;
 
+            // Update entry labels to match editor style
+            .entry-label {
+                font-size: 1.1em;
+                font-weight: 500;
+                color: #1e1e1e;
+                line-height: 1.4;
+                margin-right: 0.5rem;
+            }
+
+           // Keep the citation toggle and source title in header at their current size
+            .header-right .entry-label,
+            .notecard-footer .entry-label {
+                font-size: 0.8em;
+                font-weight: normal;
+                color: $label-color;
+            }
+            
         .notecard-header {
             background-color: $header-bg;
             border-bottom: 1px solid $border-color;
@@ -167,7 +184,7 @@ $header-bg: #f8f9f9;
             }
 
             .entry-label {
-                color: #000;
+               color: #000; 
             }
         }
     }
