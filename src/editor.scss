@@ -45,23 +45,54 @@
             gap: 1rem;
             width: 100%;
 
-            .citation-toggle {
-                .components-toggle-control {
-                    margin-bottom: 0;
-                    
-                    .components-base-control__field {
+            .citation-top {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+
+                .citation-toggle {
+                    .components-toggle-control {
                         margin-bottom: 0;
+                        
+                        .components-base-control__field {
+                            margin-bottom: 0;
+                            display: flex;
+                            flex-direction: row-reverse;
+                            align-items: center;
+                            gap: 8px;
+                        }
+
+                        .components-toggle-control__label {
+                            font-size: 11px;
+                            font-weight: 500;
+                            text-transform: uppercase;
+                            color: #1e1e1e;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .source-title-wrapper {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    flex: 1;
+                    width: 100%;
+
+                    label {
+                        font-size: 13px;
+                        margin: 0;
+                        white-space: nowrap;
                     }
 
-                    .components-form-toggle {
-                        margin-right: 8px;
+                    .components-base-control {
+                        flex: 1;
+                        width: 100%;
                     }
 
-                    .components-toggle-control__label {
-                        font-size: 11px;
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        color: #1e1e1e;
+                    .components-text-control__input {
+                        width: 100%;
                     }
                 }
             }
@@ -75,6 +106,21 @@
                 .footer-right {
                     flex: 1;
                     .components-text-control__input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        .components-card__footer {
+            .citation-controls {
+                .citation-top {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .source-title-wrapper {
                         width: 100%;
                     }
                 }

@@ -88,17 +88,6 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                                 id="topic-statement"
                             />
                         </div>
-                        {showCitation && (
-                            <div className="header-right">
-                                <TextControl
-                                    label={__('Source Title', 'essay-card-topic-statement-generator')}
-                                    value={sourceTitle}
-                                    onChange={(value) => setAttributes({ sourceTitle: value })}
-                                    placeholder={placeholders.sourceTitle}
-                                    id="source-title"
-                                />
-                            </div>
-                        )}
                     </CardHeader>
                     <CardBody>
                         <RichText
@@ -122,12 +111,26 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                     </CardBody>
                     <CardFooter>
                         <div className="citation-controls">
-                            <div className="citation-toggle">
-                                <ToggleControl
-                                    label={__('CITATION', 'essay-card-topic-statement-generator')}
-                                    checked={showCitation}
-                                    onChange={(value) => setAttributes({ showCitation: value })}
-                                />
+                            <div className="citation-top">
+                                <div className="citation-toggle">
+                                    <ToggleControl
+                                        label={__('CITATION', 'essay-card-topic-statement-generator')}
+                                        checked={showCitation}
+                                        onChange={(value) => setAttributes({ showCitation: value })}
+                                        labelPosition="left"
+                                    />
+                                </div>
+                                {showCitation && (
+                                    <div className="source-title-wrapper">
+                                        <label htmlFor="source-title">{__('Source Title:', 'essay-card-topic-statement-generator')}</label>
+                                        <TextControl
+                                            value={sourceTitle}
+                                            onChange={(value) => setAttributes({ sourceTitle: value })}
+                                            placeholder={placeholders.sourceTitle}
+                                            id="source-title"
+                                        />
+                                    </div>
+                                )}
                             </div>
                             {showCitation && (
                                 <div className="citation-fields">
