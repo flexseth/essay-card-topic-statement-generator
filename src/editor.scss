@@ -37,21 +37,47 @@
         }
     }
 
-    // Footer layout adjustments
+    // Citation controls
     .components-card__footer {
-        .footer-left {
-            flex: 1;
-            width: 50%;
-            .components-text-control__input {
-                width: 100%;
-            }
-        }
+        .citation-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
 
-        .footer-right {
-            flex: 1;
-            width: 50%;
-            .components-text-control__input {
+            .citation-toggle {
+                .components-toggle-control {
+                    margin-bottom: 0;
+                    
+                    .components-base-control__field {
+                        margin-bottom: 0;
+                    }
+
+                    .components-form-toggle {
+                        margin-right: 8px;
+                    }
+
+                    .components-toggle-control__label {
+                        font-size: 11px;
+                        font-weight: 500;
+                        text-transform: uppercase;
+                        color: #1e1e1e;
+                    }
+                }
+            }
+
+            .citation-fields {
+                display: flex;
+                gap: 1rem;
                 width: 100%;
+
+                .footer-left,
+                .footer-right {
+                    flex: 1;
+                    .components-text-control__input {
+                        width: 100%;
+                    }
+                }
             }
         }
     }
@@ -59,7 +85,9 @@
     // Rich text editor styles
     .components-card__body {
         .supporting-text {
-            min-height: 200px;
+            min-height: 2rem;
+            padding: 0.25rem 0;
+            line-height: 1.4;
         }
     }
     

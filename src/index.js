@@ -88,13 +88,6 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                                 id="topic-statement"
                             />
                         </div>
-                        <div className="citation-toggle">
-                            <ToggleControl
-                                label={__('Citation', 'essay-card-topic-statement-generator')}
-                                checked={showCitation}
-                                onChange={(value) => setAttributes({ showCitation: value })}
-                            />
-                        </div>
                         {showCitation && (
                             <div className="header-right">
                                 <TextControl
@@ -128,28 +121,37 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                         />
                     </CardBody>
                     <CardFooter>
-                        {showCitation && (
-                            <>
-                                <div className="footer-left">
-                                    <TextControl
-                                        label={__('Author', 'essay-card-topic-statement-generator')}
-                                        value={sourceAuthor}
-                                        onChange={(value) => setAttributes({ sourceAuthor: value })}
-                                        placeholder={placeholders.sourceAuthor}
-                                        id="source-author"
-                                    />
+                        <div className="citation-controls">
+                            <div className="citation-toggle">
+                                <ToggleControl
+                                    label={__('CITATION', 'essay-card-topic-statement-generator')}
+                                    checked={showCitation}
+                                    onChange={(value) => setAttributes({ showCitation: value })}
+                                />
+                            </div>
+                            {showCitation && (
+                                <div className="citation-fields">
+                                    <div className="footer-left">
+                                        <TextControl
+                                            label={__('Author', 'essay-card-topic-statement-generator')}
+                                            value={sourceAuthor}
+                                            onChange={(value) => setAttributes({ sourceAuthor: value })}
+                                            placeholder={placeholders.sourceAuthor}
+                                            id="source-author"
+                                        />
+                                    </div>
+                                    <div className="footer-right">
+                                        <TextControl
+                                            label={__('Page', 'essay-card-topic-statement-generator')}
+                                            value={sourceLocation}
+                                            onChange={(value) => setAttributes({ sourceLocation: value })}
+                                            placeholder={placeholders.sourceLocation}
+                                            id="source-location"
+                                        />
+                                    </div>
                                 </div>
-                                <div className="footer-right">
-                                    <TextControl
-                                        label={__('Page', 'essay-card-topic-statement-generator')}
-                                        value={sourceLocation}
-                                        onChange={(value) => setAttributes({ sourceLocation: value })}
-                                        placeholder={placeholders.sourceLocation}
-                                        id="source-location"
-                                    />
-                                </div>
-                            </>
-                        )}
+                            )}
+                        </div>
                     </CardFooter>
                 </Card>
             </div>
