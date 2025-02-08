@@ -11,6 +11,8 @@ import {
 import {
     useBlockProps,
     RichText,
+    AlignmentToolbar,
+    BlockControls,
 } from '@wordpress/block-editor';
 import './style.scss';
 import './editor.scss';
@@ -35,6 +37,10 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
             source: 'html',
             selector: '.supporting-text',
             multiline: 'p',
+        },
+        textAlignment: {
+            type: 'string',
+            default: 'left',
         },
         sourceTitle: {
             type: 'string',
@@ -93,6 +99,9 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                     </CardHeader>
 
                     <CardBody>
+                        <BlockControls>
+                            <AlignmentToolbar />
+                        </BlockControls>
                         <RichText
                             tagName="div"
                             className="supporting-text"
@@ -100,16 +109,17 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                             onChange={(value) => setAttributes({ supportingText: value })}
                             placeholder={placeholders.supportingText}
                             multiline="p"
-                            id="supporting-text"
                             allowedFormats={[
                                 'core/bold',
                                 'core/italic',
                                 'core/link',
                                 'core/strikethrough',
                                 'core/underline',
+                                'core/text-color',
                                 'core/superscript',
                                 'core/subscript',
-                                'core/text-color'
+                                'core/keyboard',
+                                'core/list'
                             ]}
                         />
                     </CardBody>
