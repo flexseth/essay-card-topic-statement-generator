@@ -11,20 +11,8 @@
         height: 100%;  // Match parent height for sticky context
     }
 
-    .components-card {
-        margin-top: 0;  // Remove any top margin
-        
-        .components-card__header {
-            padding-top: 1rem;  // Reduce top padding if needed
-            
-            .header-left {
-                margin-top: 0;  // Ensure no extra margin on header
-            }
-        }
-    }
-
-    // Word counter
-    .word-counter-wrapper {
+     // Word counter
+     .word-counter-wrapper {
         position: sticky;
         top: 20px;
         width: 60px;
@@ -82,6 +70,18 @@
                 background-color: var(--wp-admin-theme-color);
                 border-radius: 2px;
                 transition: width 0.3s ease-in-out;
+            }
+        }
+    }
+
+    .components-card {
+        margin-top: 0;  // Remove any top margin
+        
+        .components-card__header {
+            padding-top: 1rem;  // Reduce top padding if needed
+            
+            .header-left {
+                margin-top: 0;  // Ensure no extra margin on header
             }
         }
     }
