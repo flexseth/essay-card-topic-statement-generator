@@ -177,16 +177,12 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
 
                     <div className="notecard-footer">
                         <div className="footer-left">
-                            <div className="source-author-wrapper">
-                                <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
-                                <div className="source-author">{sourceAuthor}</div>
-                            </div>
+                            <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
+                            <span className="source-author">{sourceAuthor}</span>
                         </div>
                         <div className="footer-right">
-                            <div className="source-location-wrapper">
-                                <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
-                                <div className="source-location">{sourceLocation}</div>
-                            </div>
+                            <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
+                            <span className="source-location">{sourceLocation}</span>
                         </div>
                     </div>
                 </div>

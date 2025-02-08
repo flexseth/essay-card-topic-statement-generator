@@ -41,18 +41,16 @@ $header-bg: #f8f9f9;
                 min-width: 200px;
                 text-align: right;
 
-                .source-title-wrapper {
-                    .entry-label {
-                        color: $label-color;
-                        font-size: 0.8em;
-                        margin-right: 0.5rem;
-                    }
+                .entry-label {
+                    color: $label-color;
+                    font-size: 0.8em;
+                    margin-right: 0.5rem;
+                }
 
-                    .source-title {
-                        font-size: 0.9em;
-                        color: $text-color;
-                        display: inline;
-                    }
+                .source-title {
+                    font-size: 0.9em;
+                    color: $text-color;
+                    display: inline;
                 }
             }
         }
@@ -101,12 +99,9 @@ $header-bg: #f8f9f9;
 
             .footer-left,
             .footer-right {
-                .source-author-wrapper,
-                .source-location-wrapper {
-                    display: flex;
-                    align-items: baseline;
-                    gap: 0.5rem;
-                }
+                display: flex;
+                align-items: baseline;
+                gap: 0.25rem;
 
                 .entry-label {
                     font-size: 0.8em;
@@ -129,6 +124,7 @@ $header-bg: #f8f9f9;
                 flex: 0 0 auto;
                 min-width: 200px;
                 text-align: right;
+                justify-content: flex-end; // This ensures the content stays right-aligned
             }
         }
     }
