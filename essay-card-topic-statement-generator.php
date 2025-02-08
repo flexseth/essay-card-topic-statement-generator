@@ -3,7 +3,7 @@
  * Plugin Name: Essay Card Topic Statement Generator
  * Plugin URI: https://flexperception.com/essay-card-topic-statement-generator
  * Description: Notecards for research essays
- * Version: 1.0.0
+ * Version: 1.1.0
  * Requires at least: 5.2
  * Requires PHP: 6.0
  * Author: Seth Miller
