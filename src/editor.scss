@@ -1,43 +1,46 @@
 // Editor-specific styles
-.wp-block-essay-notecard {
+.wp-block-essay-card-topic-statement-generator-notecard {
     // Editor layout adjustments
-    .notecard-header {
+    .components-card__header {
+        flex-direction: column;
+        gap: 1rem;
+
         .header-left {
-            flex: 1;
-            min-width: 0;
-            
+            width: 100%;
+
             .components-text-control__input {
                 font-size: 1.2em;
                 font-weight: 600;
+                width: 100%;
+                min-height: 2rem;
+                line-height: 1.4;
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
             }
         }
-        
+
         .header-right {
-            flex: 0 0 auto;
-            min-width: 200px;
+            width: 100%;
         }
     }
     
-    .notecard-footer {
+    // Footer layout adjustments
+    .components-card__footer {
         .footer-left {
             flex: 1;
-            min-width: 0;
+            width: 50%;
+            .components-text-control__input {
+                width: 100%;
+            }
         }
-        
+
         .footer-right {
-            flex: 0 0 auto;
-            min-width: 200px;
+            flex: 1;
+            width: 50%;
+            .components-text-control__input {
+                width: 100%;
+            }
         }
-    }
-    
-    // Input styling
-    .components-text-control__input {
-        width: 100%;
-    }
-    
-    // Rich text area
-    .supporting-text {
-        min-height: 100px;
     }
     
     // Focus states
@@ -48,22 +51,15 @@
         outline: 2px solid transparent;
     }
     
-    // Placeholders
-    .components-text-control__input::placeholder {
-        color: #757575;
+    // Rich text editor styles
+    .notecard-body {
+        .supporting-text {
+            min-height: 200px;
+        }
     }
     
-    // Responsive adjustments for editor
-    @media (max-width: 600px) {
-        .notecard-header,
-        .notecard-footer {
-            flex-direction: column;
-            gap: 1rem;
-            
-            .header-right,
-            .footer-right {
-                min-width: 100%;
-            }
-        }
+    // Style placeholders
+    .components-text-control__input::placeholder {
+        color: #757575;
     }
 }
