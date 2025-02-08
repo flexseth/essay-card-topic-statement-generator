@@ -1,115 +1,171 @@
-// Frontend styles for the essay notecard
-.wp-block-essay-notecard {
+$text-color: #2c3338;
+$border-color: #ddd;
+$label-color: #757575;
+$header-bg: #f8f9f9;
+
+.wp-block-essay-card-topic-statement-generator-notecard {
     margin: 2rem auto;
     max-width: 800px;
-    
-    .components-card {
+
+    .notecard {
         background: #ffffff;
-        border: 1px solid #ddd;
+        border: 1px solid $border-color;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         overflow: hidden;
-        
-        // Header section with topic statement
-        .components-card__header {
-            background-color: #f8f9f9;
-            border-bottom: 1px solid #ddd;
+
+        .notecard-header {
+            background-color: $header-bg;
+            border-bottom: 1px solid $border-color;
             padding: 1rem;
-            
-            .topic-statement {
-                font-size: 1.2em;
-                font-weight: 600;
-                color: #1e1e1e;
-                line-height: 1.4;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: flex-start;
+
+            .header-left {
+                flex: 1;
+                min-width: 0;
+
+                .topic-statement {
+                    font-size: 1.2em;
+                    font-weight: 600;
+                    color: #1e1e1e;
+                    line-height: 1.4;
+                    margin: 0;
+                }
+            }
+
+            .header-right {
+                flex: 0 0 auto;
+                min-width: 200px;
+                text-align: right;
+
+                .source-title-wrapper {
+                    .entry-label {
+                        color: $label-color;
+                        font-size: 0.8em;
+                        margin-right: 0.5rem;
+                    }
+
+                    .source-title {
+                        font-size: 0.9em;
+                        color: $text-color;
+                        display: inline;
+                    }
+                }
             }
         }
-        
-        // Body section with supporting text
-        .components-card__body {
+
+        .notecard-body {
             padding: 1.5rem;
-            
+
             .supporting-text {
                 line-height: 1.6;
-                color: #2c3338;
-                
+                color: $text-color;
+
                 p {
                     margin: 0 0 1rem 0;
-                    
+
                     &:last-child {
                         margin-bottom: 0;
                     }
                 }
-                
-                // Style for rich text content
+
                 a {
                     color: #0073aa;
                     text-decoration: underline;
-                    
+
                     &:hover {
                         color: #006799;
                     }
                 }
-                
+
                 strong {
                     font-weight: 600;
                 }
-                
+
                 em {
                     font-style: italic;
                 }
             }
         }
-        
-        // Footer section with citation info
-        .components-card__footer {
-            background-color: #f8f9f9;
-            border-top: 1px solid #ddd;
+
+        .notecard-footer {
+            background-color: $header-bg;
+            border-top: 1px solid $border-color;
             padding: 1rem;
-            
-            .citation-info {
-                display: grid;
-                grid-gap: 1rem;
-                
-                @media (min-width: 600px) {
-                    grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+
+            .footer-left,
+            .footer-right {
+                .source-author-wrapper,
+                .source-location-wrapper {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 0.5rem;
                 }
-                
-                .source-entry {
-                    .entry-label {
-                        display: block;
-                        font-size: 0.8em;
-                        color: #757575;
-                        margin-bottom: 0.25rem;
-                        font-weight: 500;
-                    }
-                    
-                    .source-title,
-                    .source-author,
-                    .source-location {
-                        font-size: 0.9em;
-                        color: #2c3338;
-                    }
+
+                .entry-label {
+                    font-size: 0.8em;
+                    color: $label-color;
+                }
+
+                .source-author,
+                .source-location {
+                    font-size: 0.9em;
+                    color: $text-color;
+                }
+            }
+
+            .footer-left {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .footer-right {
+                flex: 0 0 auto;
+                min-width: 200px;
+                text-align: right;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .wp-block-essay-card-topic-statement-generator-notecard {
+        .notecard {
+            .notecard-header,
+            .notecard-footer {
+                flex-direction: column;
+                gap: 1rem;
+
+                .header-right,
+                .footer-right {
+                    min-width: 100%;
+                    text-align: left;
                 }
             }
         }
     }
-    
-    // Print styles
-    @media print {
-        .components-card {
+}
+
+@media print {
+    .wp-block-essay-card-topic-statement-generator-notecard {
+        .notecard {
             box-shadow: none;
             border: 1px solid #000;
-            
-            .components-card__header,
-            .components-card__footer {
+
+            .notecard-header,
+            .notecard-footer {
                 background-color: transparent;
                 border-color: #000;
             }
-            
-            .citation-info {
-                .entry-label {
-                    color: #000;
-                }
+
+            .entry-label {
+                color: #000;
             }
         }
     }
