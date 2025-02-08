@@ -57,6 +57,11 @@ npm run build
 - WordPress 5.2 or higher
 - PHP 6.0 or higher
 
+## Todo
+- Check "Page" field for text or URL & validate 
+- Create grid display for notecards
+- Add automatic citations based on input fields
+
 ## License
 
 GPL v2 or later - https://www.gnu.org/licenses/gpl-2.0.html
