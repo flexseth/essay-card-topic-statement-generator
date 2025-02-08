@@ -116,12 +116,40 @@
     @media (max-width: 600px) {
         .components-card__footer {
             .citation-controls {
+                gap: 1rem;
+
                 .citation-top {
                     flex-direction: column;
                     align-items: flex-start;
+                    gap: 0.5rem;
 
                     .source-title-wrapper {
                         width: 100%;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 0.5rem;
+
+                        label {
+                            margin-bottom: 0.25rem;
+                        }
+
+                        .components-base-control {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .citation-fields {
+                    flex-direction: column;
+                    gap: 0.5rem;
+
+                    .footer-left,
+                    .footer-right {
+                        width: 100%;
+
+                        .components-base-control__label {
+                            margin-bottom: 0.25rem;
+                        }
                     }
                 }
             }
