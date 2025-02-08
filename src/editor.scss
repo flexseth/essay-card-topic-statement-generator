@@ -29,6 +29,16 @@
             opacity: 1;
         }
 
+        &.complete .word-progress {
+            &::-webkit-progress-value {
+                background: linear-gradient(to right, var(--wp-admin-theme-color) 0%, #4caf50 100%);
+            }
+
+            &::-moz-progress-bar {
+                background: linear-gradient(to right, var(--wp-admin-theme-color) 0%, #4caf50 100%);
+            }
+        }
+
         .word-counter {
             display: flex;
             flex-direction: column;
