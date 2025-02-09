@@ -15,6 +15,7 @@ import {
 } from '@wordpress/block-editor';
 import './style.scss';
 import './editor.scss';
+import GrammarChecker from './GrammarChecker' // init Harper
 
 registerBlockType('essay-card-topic-statement-generator/notecard', {
     apiVersion: 2,

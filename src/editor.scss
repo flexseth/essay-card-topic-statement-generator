@@ -113,6 +113,49 @@
         }
     }
 
+    // Harper
+    .grammar-suggestions {
+        position: absolute;
+        right: -300px; // Position next to the word counter
+        top: 20px;
+        width: 280px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+
+        .checking-grammar {
+            color: #757575;
+            font-style: italic;
+        }
+
+        .suggestions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .suggestion-item {
+                font-size: 13px;
+                line-height: 1.4;
+
+                .suggestion-text {
+                    display: block;
+                    color: #1e1e1e;
+                    margin-bottom: 4px;
+                }
+
+                .suggestion-context {
+                    display: block;
+                    color: #757575;
+                    font-style: italic;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
     @media (max-width: 600px) {
         .components-card__footer {
             .citation-controls {

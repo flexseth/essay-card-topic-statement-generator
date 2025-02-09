@@ -27,7 +27,7 @@ To set up the development environment:
 
 1. Clone this repository to your local machine
 2. Navigate to the plugin directory
-3. Install dependencies:
+3. Install dependencies
 ```bash
 npm install
 ```
@@ -61,6 +61,7 @@ npm run build
 - Check "Page" field for text or URL & validate 
 - Create grid display for notecards
 - Add automatic citations based on input fields
+- Use Harper to grammar check
 
 ## License
 
