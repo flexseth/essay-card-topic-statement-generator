@@ -1,5 +1,6 @@
-## Version 2.0.0
-Added [Harper](https://github.com/Automattic/harper) for grammar checking
+## Version 1.2.0
+Added word counter for supporting info
+>>>>>>> new/add_word-counter
 
 ## Version 1.1.2
 Added toggle controls to add or show citation
