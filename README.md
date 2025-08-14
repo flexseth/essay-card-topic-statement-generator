@@ -1,4 +1,6 @@
 `git checkout 48c51b027502b9659fbbff8c4341087dc5d381d8` - correct branch
+- Frontend display isn't as good as I want
+- [ ] Find UI display to match [screenshot](https://github.com/flexseth/essay-card-topic-statement-generator/blob/main/screenshot.png)
 
 # Essay Card Topic Statement Generator
 
