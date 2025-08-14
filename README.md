@@ -1,3 +1,5 @@
+`git checkout 48c51b027502b9659fbbff8c4341087dc5d381d8` - correct branch
+
 # Essay Card Topic Statement Generator
 
 A WordPress plugin that adds a Gutenberg block for creating essay notecards with topic statements, supporting text, and MLA citations.
