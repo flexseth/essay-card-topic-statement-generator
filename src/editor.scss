@@ -84,13 +84,14 @@
     }
 
     .components-card {
-        margin-top: 0;  // Remove any top margin
+        margin-top: 0;
+        margin-bottom: 2rem;
         
         .components-card__header {
-            padding-top: 1rem;  // Reduce top padding if needed
+            padding-top: 1rem;
             
             .header-left {
-                margin-top: 0;  // Ensure no extra margin on header
+                margin-top: 0;
             }
         }
     }
