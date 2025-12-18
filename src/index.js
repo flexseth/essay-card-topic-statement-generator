@@ -186,7 +186,7 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
                         <div className="header-left">
                             <div className="topic-statement">{topicStatement}</div>
                         </div>
-                        {showCitation && sourceTitle && (
+                        {showCitation && (
                             <div className="header-right">
                                 <div className="source-title-wrapper">
                                     <span className="entry-label">{__('Source:', 'essay-card-topic-statement-generator')}</span>
@@ -206,18 +206,14 @@ registerBlockType('essay-card-topic-statement-generator/notecard', {
 
                     {showCitation && (
                         <div className="notecard-footer">
-                            {sourceAuthor && (
-                                <div className="footer-left">
-                                    <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
-                                    <span className="source-author">{sourceAuthor}</span>
-                                </div>
-                            )}
-                            {sourceLocation && (
-                                <div className="footer-right">
-                                    <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
-                                    <span className="source-location">{sourceLocation}</span>
-                                </div>
-                            )}
+                            <div className="footer-left">
+                                <span className="entry-label">{__('Author:', 'essay-card-topic-statement-generator')}</span>
+                                <span className="source-author">{sourceAuthor}</span>
+                            </div>
+                            <div className="footer-right">
+                                <span className="entry-label">{__('Page:', 'essay-card-topic-statement-generator')}</span>
+                                <span className="source-location">{sourceLocation}</span>
+                            </div>
                         </div>
                     )}
                 </div>

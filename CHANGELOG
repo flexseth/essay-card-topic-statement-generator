@@ -1,6 +1,12 @@
+## Version 1.2.1
+Fix front-end rendering with citation toggle
+- Fixed CSS nesting issue in style.scss that prevented compilation
+- Simplified save function to use single-level conditionals
+- CSS now properly handles hiding empty citation fields using :empty pseudo-class
+- Front-end display now works correctly with citation toggle feature
+
 ## Version 1.2.0
 Added word counter for supporting info
->>>>>>> new/add_word-counter
 
 ## Version 1.1.2
 Added toggle controls to add or show citation

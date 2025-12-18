@@ -85,26 +85,18 @@ $header-bg: #f8f9f9;
         }
     }
 
-    // Hide label when source fields are empty
+    // Hide empty source fields
     .source-title:empty,
     .source-author:empty,
     .source-location:empty {
+        display: none;
+
+        // Also hide labels when fields are empty
         & ~ .entry-label,
         &:before {
             display: none;
         }
     }
-    .word-counter-wrapper {
-        position: absolute;
-        top: 0;
-        left: calc(100% + 20px);
-        height: 100%;
-        // Hide empty source fields themselves
-        .source-title:empty,
-        .source-author:empty,
-        .source-location:empty {
-            display: none;
-        }
 
     .notecard {
         background: #ffffff;
@@ -112,7 +104,6 @@ $header-bg: #f8f9f9;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         overflow: hidden;
-    }
 
         .notecard-header {
             background-color: $header-bg;
